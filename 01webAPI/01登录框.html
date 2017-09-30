@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>	
+		<style>
+			
+			#box {
+				width: 240px;
+				height:30px;
+				border: 1px solid red;
+				line-height:30px;
+				text-align:center;
+				color: red;
+				position: relative;
+				font-size: 16px;
+				left:100px;
+				display: none;
+			}
+				
+		</style>
+	</head>
+	<body>
+		用户名：<input type="text" /><br />
+		密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码:<input type="password" /><br />
+		<input type="checkbox" />
+		<span>十天之内免登录</span>
+		<div id="box">禁止在公共场合或网吧打勾</div>
+	</body>
+	<script>
+//		获取实现相关元素
+		var aSpan = document.getElementsByTagName('span');
+		var oBox = document.getElementById('box');
+//		添加鼠标移上事件
+		aSpan[0].onmouseover = function() {
+			oBox.style.display = "block";
+		}
+//		添加鼠标移除事件
+		aSpan[0].onmouseout = function() {
+			oBox.style.display = "none";
+		}
+	</script>
+</html>

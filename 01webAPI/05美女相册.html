@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body {
+				color:#333;
+				background-color: #ccc;
+				margin:1em 10%;
+			}
+			a {
+				margin: 0px 20px;
+				padding:0;
+				display:inline;
+			}
+			img {
+				border:0;
+				width: 100px;
+			}
+			#box3 img {
+				width: 400px;
+				height: 250px;
+			}
+		</style>
+	</head>
+	<body>
+		<h2>美女画廊</h2>
+		<div id="box1">
+			<a href="images/1.jpg"  title="美女A">
+				<img src="images/1-small.jpg"  alt="美女1" />
+			</a>
+			<a href="images/2.jpg" title="美女B">
+				<img src="images/2-small.jpg" alt="美女2" />
+			</a>
+			<a href="images/3.jpg" title="美女C">
+				<img src="images/3-small.jpg" alt="美女3" />
+			</a>
+			<a href="images/4.jpg" title="美女D">
+				<img src="images/4-small.jpg" alt="美女4" />
+			</a>
+		</div>
+		<p></p>
+		<div id="box2"></div>
+		<div id="box3"><img src="images/placeholder.png" alt="" id ="img" /></div>
+		<p>请选择一个图片</p>
+	</body>
+	<script>
+//		获取事件相关元素
+		var aA = document.getElementsByTagName('a');
+		var oBox2 = document.getElementById('box2');
+		var oImg = document.getElementById('img');
+		console.log(oImg);
+		
+//		给所有的添加单击事件
+		for(var i = 0; i < aA.length; i++) {
+			aA[i].onclick = function() {
+				oImg.src = this.href;
+				oBox2.innerHTML = this.title;
+				return false;
+			}
+		}
+	</script>
+	
+</html>

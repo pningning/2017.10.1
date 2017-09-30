@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#box {
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				margin-top:2px;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" value="隐藏" />
+		<div id="box"></div>
+	</body>
+	<script>
+//		获取事件相关元素
+		var oInt = document.getElementsByTagName('input')[0];
+		var oBox = document.getElementById('box');
+		
+//		设置开关,假设为真
+		var onOff = true;
+		//给按钮添加单击事件
+		oInt.onclick = function() {
+			if(onOff) {
+				oBox.style.display = "none";//单击的时候如果开关为真，那么让让图片隐藏
+			}else {
+				oBox.style.display = 'block';//点击的时候开关为假，那让图片显示
+			}
+			onOff = !onOff;//取反开关，为下次单击做准备
+		}
+	</script>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="切换" /><br />
+		<img src="images/a.jpg" alt="" />
+	</body>
+		
+		<script>
+			//<!--获取事件相关元素-->
+			var oInt = document.getElementsByTagName('input')[0];
+			var oImg = document.getElementsByTagName('img')[0];
+			
+//			设置开关假设为真
+			var onOff = true;
+			//给按钮添加单击事件
+			oInt.onclick = function() {
+				if(onOff) {
+					oImg.src = "images/b.jpg";
+				}else {
+					oImg.src = "images/a.jpg";
+				}
+				onOff = !onOff;
+			}
+		</script>
+</html>
