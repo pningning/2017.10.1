@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="单击" /><br />	
+		<img src="images/1-small.jpg" alt="" title="美女1" />
+		<img src="images/2-small.jpg" alt="" title="美女2" />
+		<img src="images/3-small.jpg" alt="" title="美女3" />
+		<img src="images/4-small.jpg" alt="" title="美女4" />
+	</body>
+	<script>
+		//获取事件相关元素
+		var oInt = document.getElementsByTagName('input')[0];
+		var aImg = document.getElementsByTagName('img');
+		
+		//创建数组存储要改变的值
+		var att = ["美女","野兽","风姐","芙蓉姐姐"];
+		//给按钮添加单击事件
+		oInt.onclick = function() {
+			//循环所有的图片,改变title值
+			for(var i =0; i < aImg.length; i++) {
+				aImg[i].title = att[i];
+			}
+		}
+		
+	</script>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="呜呜" />
+		<input type="button" value="呜呜" />
+		<input type="button" value="呜呜" />
+		<input type="button" value="呜呜" />
+	</body>
+	<script>
+		//获取事件相关元素
+		var aInt = document.getElementsByTagName('input');
+		
+//		//给所有的按钮添加单击事件
+//		for(var i = 0; i < aInt.length; i++) {
+//			aInt[i].onclick = function() {
+//				//暴力清除
+//				for(var i = 0; i < aInt.length; i++) {
+//					aInt[i].value = "呜呜";
+//				}
+//				this.value = "哈哈";
+//			}
+//		}
+		
+		//方法二
+		//建立一个变量.存储之前点击的按钮
+		var obj = null;
+		//给所有的按钮添加单击事件
+		for(var i = 0; i < aInt.length; i++) {
+			aInt[i].onclick = function() {
+				if(obj) {
+					obj.value = "呜呜";
+				}
+				this.value = "哈哈";
+				obj = this;
+			}
+		}
+		
+	</script>
+</html>

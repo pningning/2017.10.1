@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<img src="images/1-small.jpg" alt="" />
+		<img src="images/2-small.jpg" alt="" />
+		<img src="images/3-small.jpg" alt="" />
+		<img src="images/4-small.jpg" alt="" />
+	</body>
+	<script>
+//		单击每个图片弹出对话框
+		//获取事件相关元素
+		var aImg = document.getElementsByTagName('img');
+		
+		//给每个图片添加单击事件
+		for(var i = 0; i < aImg.length; i++) {
+			aImg[i].onclick = function() {
+				alert('你好啊');
+			}
+		}
+	</script>
+</html>

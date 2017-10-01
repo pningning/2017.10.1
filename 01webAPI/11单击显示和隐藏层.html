@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#box {
+				width: 200px;
+				height: 200px;
+				margin: 100px auto;
+				background-color: red;
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" value="登录切换" />
+		<div id="box"></div>
+	</body>
+	<script>
+		//获取事件相关元素
+		var oInt = document.getElementsByTagName('input')[0];
+		var oBox = document.getElementById('box');
+		//设置开关假设为真
+		var onOff = true;
+		//给按钮添加单击事件
+		oInt.onclick = function() {
+			if(onOff) {
+				oBox.style.display = "block";
+			}else {
+				oBox.style.display = "none";
+			}
+			onOff = !onOff;
+			
+		}
+	</script>
+</html>

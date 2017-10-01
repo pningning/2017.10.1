@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="单击选中深圳" />
+		<select name="" id="sel">
+			<option value="bj">北京</option>
+			<option value="sh">上海</option>
+			<option value="gz">广州</option>
+			<option value="sz">深圳</option>
+		</select>
+	</body>
+	<script>
+		//获取事件相关元素
+		var aInt = document.getElementsByTagName('input')[0];
+		var opts = document.getElementsByTagName('option');
+		//添加单击事件
+		aInt.onclick = function() {
+			opts[3].selected = true;
+		}
+	</script>
+</html>

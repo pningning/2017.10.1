@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="单击改变地址" />
+		<a href="http://www.baidu.com" target="-blank">百度</a>
+	</body>
+	<script>
+//		获取事件相关元素
+		var oInt = document.getElementsByTagName('input')[0];
+		var aA = document.getElementsByTagName('a')[0];
+		
+		//给按钮添加单击事件
+		oInt.onclick = function() {
+			aA.href = "http://www.jd.com";
+			aA.innerHTML = "京东";
+		}
+	</script>
+</html>

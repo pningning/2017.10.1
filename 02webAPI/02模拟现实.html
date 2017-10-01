@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" value="请输入内容" />
+	</body>
+	<script>
+		//获取事件相关元素
+		var aInt = document.getElementsByTagName('input')[0];
+		
+		aInt.onfocus = function() {
+			if(this.value === "请输入内容") {
+				this.value = "";
+			}
+		}
+		
+		//失去焦点的时候
+		
+		aInt.onblur = function() {
+			if(this.value === "") {
+				this.value = "请输入内容";
+			}
+		}
+	</script>
+</html>
