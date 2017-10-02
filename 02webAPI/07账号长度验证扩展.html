@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			input {
+				width: 400px;
+				height: 30px;
+			}
+			.span {
+				color: red;
+			}
+			.wrong {
+				border: 1px solid red;
+			}
+			.right {
+				color: pink;
+			}
+		</style>
+	</head>
+	<body>
+		账号：<input type="text" /><span></span><br /><br />
+		密码：<input type="text" />	
+	</body>
+	<script>
+		//获取事件相关元素
+		var aInt = document.getElementsByTagName('input');
+		var aSpan = document.getElementsByTagName('span');
+		
+		//文本框失去焦点的时候
+		aInt[0].onblur = function() {
+			if(this.value === "") {
+				alert('请输入内容');
+			}
+		}
+		
+		//添加input事件
+		aInt[0].oninput = function() {
+			//声明变量，存储当前文本框的内容
+			var str = this.value;
+			if(str.length < 6 || str.length > 12) {
+				this.className = "wrong";
+				aSpan[0].innerHTML = "请输入6-12位字符";
+				aSpan[0].className = "span";
+			} else {
+				this.className = "";
+				aSpan[0].innerHTML = "恭喜输入正确";
+				aSpan[0].className = "right";
+			}
+		}
+	</script>
+</html>

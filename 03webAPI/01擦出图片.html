@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.box {
+				width: 52px;
+				height: 60px;
+				background: url(pic.jpg) 0 0 no-repeat;
+				position: absolute;
+				opacity: 0;
+				transition: 0.5s;
+			}
+		</style>
+	</head>
+	<body>
+	</body>
+	<script>
+		//首先在页面上添加100个div盒子
+		//循环100次，生成100个div]
+		var str = "";
+		for(var i= 0; i< 100; i++) {
+			//找到div摆放的规律
+			//横向
+			var l = i%10*53; 
+			//纵向
+			var t = parseInt(i/10)*61;
+			str += '<div class="box" style="left:'+l+'px;top:'+t+'px;background-position:'+-l+'px '+-t+'px;"></div>'
+		}
+		//把100个div添加到页面上
+		document.body.innerHTML = str;
+		
+		//获取到页面的div
+		var aDiv = document.getElementsByTagName('div');
+		//给所有的div添加鼠标经过事件
+		for(var i = 0; i < aDiv.length; i++) {
+			aDiv[i].onmouseover = function() {
+				this.style.opacity = "1";
+			}
+		}
+	</script>
+</html>
