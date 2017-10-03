@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#oul {
+				width: 300px;
+				height: 300px;
+				border: 1px solid black;
+			}
+			* {
+				list-style: none;
+			}
+		</style>
+	</head>
+	<body>
+		<ul id="oul">
+			<!--<li>要添加的内容</li>-->
+		</ul>
+		<span>小明:</span><input type="text" /> <input type="button" value="发送" />
+	</body>
+	<script>
+		//获取事件相关元素
+		var oUl = document.getElementById('oul');
+		var aInt = document.getElementsByTagName('input');
+		var oSpan = document.getElementsByTagName('span')[0];
+		
+		aInt[0].focus();//自动获取焦点
+		
+		//给按钮添加单击事件
+		aInt[1].onclick = function() {
+			var str = aInt[0].value;
+			oUl.innerHTML = '<li ><strong style="color: red;">'+oSpan.innerHTML+'</strong>'+str+'</li>'+oUl.innerHTML;
+			aInt[0].value = "";
+			aInt[0].focus();
+		}
+		
+		//人物切换
+		//给人物添加单击事件
+		oSpan.onclick = function() {
+			if(oSpan.innerHTML === "小明:") {
+				oSpan.innerHTML = "小花:"
+			}else {
+				oSpan.innerHTML = "小明:"
+			}
+		}
+	</script>
+</html>

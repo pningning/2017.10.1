@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li>111</li>
+			<li>222</li>
+			<li>333</li>
+			<li>444</li>
+			<li>555</li>
+			<li>666</li>
+			<li>7777</li>
+			<li>888</li>
+		</ul>
+	</body>
+	<script>
+		function next(obj) {
+			var nextEle = obj.nextElementSibling || obj.nextSibling;
+		
+			if(nextEle&&nextEle.nodeType==1){
+				return nextEle;
+			}else {
+				return null;
+			}
+		}
+		//获取事件相关元素
+		var oUl = document.getElementsByTagName('ul')[0];
+		var childs = oUl.children;
+		
+		//添加鼠标移上事件
+		for(var i = 0; i < childs.length; i++) {		
+			childs[i].onmouseover = function() {
+				
+				//鼠标移上的时候暴力清除所有的颜色
+				for(var i = 0 ; i < childs.length; i++) {
+					childs[i].style.backgroundColor = "";
+				}
+				if(next(this)) {
+					next(this).style.backgroundColor = "red";
+				}else {
+					this.style.backgroundColor = "pink";
+				}
+			}
+		}
+	</script>
+</html>
