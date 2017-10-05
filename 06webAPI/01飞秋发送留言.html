@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box {
+				width: 516px;
+				height: 498px;
+				background:url(bj.jpg);
+				margin: 20px auto 0;
+				position: relative;
+			}
+			#oUl {
+				width: 285px;
+				height: 285px;
+				position: absolute;
+				left: 0px;
+				top: 68px;
+				list-style: none;
+				margin-left: 0;
+			}
+			#text {
+				width: 320px;
+				height: 80px;
+				position: absolute;
+				left: 0;
+				bottom: 20px;
+				outline: none;
+				border:none;
+			}
+			#btn {
+				position: absolute;
+				right: 210px;
+			    bottom: 19px;
+			    height: 20px;
+			}
+			#oSel {
+				position: absolute;
+				bottom: 20px;
+			    right: 190px;
+			    width: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<ul id="oUl">
+				
+			</ul>
+			<textarea id="text"></textarea>
+			<input type="button" value="发送" id="btn" />
+			<select id="oSel">
+				<option value="e">按下enter发送</option>
+				<option value="c">按下ctrl+enter发送</option>
+			</select>
+		</div>
+	</body>
+	<script>
+		//获取事件相关元素
+		var oUl = document.getElementById('oUl');
+		var oText = document.getElementById('text');
+		var oBtn = document.getElementById('btn');
+		var oSel = document.getElementById('oSel');
+		oText.focus();
+		//给按钮添加单击事件
+		oBtn.onclick = function() {
+			core();//函数调用
+		}
+		function core() {
+			if(oText.value === "") {
+				return alert('请输入内容');
+			}
+			oUl.innerHTML += "<li>"+ oText.value +"</li>";
+			oText.value = '';
+			oText.focus();
+		}
+		
+		//给整个文档添加键盘事件
+		document.onkeydown = function(e) {
+			e = e || event;
+			//按下回车的时候
+			if(e.keyCode == 13 && !e.ctrlKey) {
+				if(oSel.value == "e") {
+					core();
+				}				
+			}
+			//按下回车加ctrl的时候
+			if(e.keyCode == 13 && e.ctrlKey) {
+				if(oSel.value == "c") {
+				core();					
+				}
+			}
+		}
+	</script>
+</html>

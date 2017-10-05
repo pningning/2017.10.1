@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#box {
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				position: absolute;
+				left: 100px;
+				top: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+	</body>
+	<script>
+		//获取事件相关元素
+		var oBox = document.getElementById('box');
+		//添加鼠标按下事件
+		oBox.onmousedown = function(e) {
+			e = e || event;
+			//获取到单击是鼠标在div上的固定距离
+			var disX = e.clientX - oBox.offsetLeft;
+			var disY =e.clientY - oBox.offsetTop;
+			//给文档添加鼠标移动事件
+			document.onmousemove = function(e) {
+				e = e || event;
+				var scrollT = document.documentElement.scrollTop || document.body.scrollTop;//获取到垂直滚动的距离
+				var x = e.clientX - disX;
+				var y = e.clientY + scrollT - disY;
+				
+				//三元运算法判断限制范围
+				x = x < 0 ? 0 : x;
+				x = x > pos().l - oBox.offsetWidth ? pos().l - oBox.offsetWidth : x;
+				y = y < 0 ? 0 : y;
+				y = y > pos().t - oBox.offsetHeight ? pos().t - oBox.offsetHeight : y;
+				oBox.style.left = x + "px";
+				oBox.style.top = y + "px";
+			}
+			
+			//添加鼠标弹起事件
+			document.onmouseup = function() {
+				//取消移动事件
+				document.onmousemove = null;
+			}
+		}
+		
+		
+		//获取可视范围的宽高的函数
+		function pos() {
+			return {
+				l : document.documentElement.clientWidth,
+				t : document.documentElement.clientHeight
+			};
+		}
+	</script>
+</html>

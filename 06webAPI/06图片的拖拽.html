@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			img {
+				width: 100px;
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<img src="xn.png" alt="" />
+	</body>
+	<script>
+		//获取事件相关元素
+		var oImg = document.getElementsByTagName('img')[0];
+//		console.log(oImg);
+		//在图片身上添加鼠标按下事件
+		oImg.onmousedown = function(ev) {
+			ev = ev || event;
+			//标准浏览器下阻止默认行为
+			if(ev.preventDefault) {
+				ev.preventDefault();
+			}
+			//非标准阻止默认行为
+			ev.returnValue && (ev.returnValue = false);
+		    //给图片添加全部捕获
+		    oImg.setCapture && oImg.setCapture();
+		    //获取到当前鼠标在图片上的位置
+		    var disX = ev.clientX - this.offsetLeft;
+		    var disY = ev.clientY - this.offsetTop;
+		    //在整个文档下添加鼠标移动事件
+		    document.onmousemove = function(ev) {
+		    	ev = ev || event;
+		    	oImg.style.left = ev.clientX - disX + "PX";
+		    	oImg.style.top = ev.clientY - disY + "px";
+		    }
+		    //鼠标弹起
+		    document.onmouseup = function() {
+		    	document.onmousemove = null;
+		    	oImg.releaseCapture && oImg.releaseCapture();
+		    }
+		} 
+	</script>
+</html>
